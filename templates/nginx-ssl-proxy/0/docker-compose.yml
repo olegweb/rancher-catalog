@@ -1,0 +1,37 @@
+nginx-ssl-proxy:
+  restart: always
+  image: nginx:1.9.9
+  ports:
+    - "443:443"
+  environment:
+    - SERVER_NAME_1=${server_name_1}
+    - SERVER_NAME_2=${server_name_2}
+    - SERVER_NAME_3=${server_name_3}
+    - SERVER_NAME_4=${server_name_4}
+    - SERVER_NAME_5=${server_name_5}
+    - SERVICE_LINK_1=${service_link_1}
+    - SERVICE_LINK_2=${service_link_2}
+    - SERVICE_LINK_3=${service_link_3}
+    - SERVICE_LINK_4=${service_link_4}
+    - SERVICE_LINK_5=${service_link_5}
+    - SERVICE_PORT_1=${service_port_1}
+    - SERVICE_PORT_2=${service_port_2}
+    - SERVICE_PORT_3=${service_port_3}
+    - SERVICE_PORT_4=${service_port_4}
+    - SERVICE_PORT_5=${service_port_5}
+  external_links:
+    ${service_link_1}
+    ${service_link_2}
+    ${service_link_3}
+    ${service_link_4}
+    ${service_link_5}
+  volumes:
+    - ${nginx_path}/certs:/etc/nginx/certs:ro
+    - ${nginx_path}/conf.d:/etc/nginx/conf.d:ro
+  command: /bin/bash -c "cd /etc/nginx/conf.d \
+                        && i=1 \
+                        && for service_link in `compgen -A variable | grep TT`; do var_name=LINK_NAME_$i && eval $var_name=${!service_link#*:} && export $var_name && i=$((i+1)); done
+                        && for file in *.conf; do envsubst < $file > $file.tmp \
+                        && rm $file \
+                        && mv $file.tmp $file; done \
+                        && nginx -g 'daemon off;'"

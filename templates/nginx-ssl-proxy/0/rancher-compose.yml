@@ -1,0 +1,107 @@
+.catalog:
+  name: Nginx SSL Proxy
+  version: 1.9.9
+  description: |
+    Nginx is a free web server and proxy
+  minimum_rancher_version: v0.56.0
+  uuid: nginx-ssl-proxy-0
+  questions:
+    - variable: "nginx_path"
+      description: "Path to conf.d and carts"
+      label: "Path to conf.d and carts:"
+      required: true
+      default: "/rancher/nginx-ssl-proxy"
+      type: "string"
+    - variable: "server_name_1"
+      description: "Server name (load cert files: server_name.key server_name.pem)"
+      label: "Server name 1:"
+      required: true
+      default: "registry.sarrc.ru"
+      type: "string"
+    - variable: "service_link_1"
+      description: "External service link in full format ' - stack/service:link'"
+      label: "Service link 1"
+      required: false
+      default: " - registry/registry:registry"
+      type: "string"
+    - variable: "service_port_1"
+      description: "Service port"
+      label: "Service port 1:"
+      required: true
+      default: "5000"
+      type: "int"
+    - variable: "server_name_2"
+      description: "Server name (load cert files: server_name.key server_name.pem)"
+      label: "Server name 2:"
+      required: false
+      default: "auth.registry.sarrc.ru"
+      type: "string"
+    - variable: "service_link_2"
+      description: "External service link in full format '- stack/service:link'"
+      label: "Service link 2"
+      required: false
+      default: " - registry/portus:portus"
+      type: "string"
+    - variable: "service_port_2"
+      description: "Service port"
+      label: "Service port 2:"
+      required: false
+      default: "3000"
+      type: "int"
+    - variable: "server_name_3"
+      description: "Server name (load cert files: server_name.key server_name.pem)"
+      label: "Server name 3:"
+      required: false
+      default: ""
+      type: "string"
+    - variable: "service_link_3"
+      description: "External service link in full format '- stack/service:link'"
+      label: "Service link 3"
+      required: false
+      default: ""
+      type: "string"
+    - variable: "service_port_3"
+      description: "Service port"
+      label: "Service port 3:"
+      required: false
+      default: ""
+      type: "int"
+    - variable: "server_name_4"
+      description: "Server name (load cert files: server_name.key server_name.pem)"
+      label: "Server name 4:"
+      required: false
+      default: ""
+      type: "string"
+    - variable: "service_link_4"
+      description: "External service link in full format '- stack/service:link'"
+      label: "Service link 4"
+      required: false
+      default: ""
+      type: "string"
+    - variable: "service_port_4"
+      description: "Service port"
+      label: "Service port 4:"
+      required: false
+      default: ""
+      type: "int"
+    - variable: "server_name_5"
+      description: "Server name (load cert files: server_name.key server_name.pem)"
+      label: "Server name 5:"
+      required: false
+      default: ""
+      type: "string"
+    - variable: "service_link_5"
+      description: "External service link in full format '- stack/service:link'"
+      label: "Service link 5"
+      required: false
+      default: ""
+      type: "string"
+    - variable: "service_port_5"
+      description: "Service port"
+      label: "Service port 5:"
+      required: false
+      default: ""
+      type: "int"
+nginx-ssl-proxy:
+  scale: 1
+

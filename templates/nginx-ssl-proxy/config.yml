@@ -1,0 +1,5 @@
+name: Nginx SSL Proxy custom
+description: |
+  Nginx is a free web server and proxy
+version: 1.9.9
+category: Versioning
