@@ -19,10 +19,10 @@
       default: "registry.sarrc.ru"
       type: "string"
     - variable: "service_link_1"
-      description: "External service link in full format ' - stack/service:link'"
+      description: "External service link in full format '- stack/service:link'"
       label: "Service link 1"
       required: false
-      default: " - registry/registry:registry"
+      default: "- registry/registry:registry"
       type: "string"
     - variable: "service_port_1"
       description: "Service port"
@@ -40,7 +40,7 @@
       description: "External service link in full format '- stack/service:link'"
       label: "Service link 2"
       required: false
-      default: " - registry/portus:portus"
+      default: "- registry/portus:portus"
       type: "string"
     - variable: "service_port_2"
       description: "Service port"
