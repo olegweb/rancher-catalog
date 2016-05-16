@@ -34,7 +34,7 @@ nginx-ssl-proxy:
     i=1
     for service_link in `compgen -A variable | grep TT`; do
       var_name=LINK_NAME_$i
-      eval $var_name=${!service_link#*:}
+      eval $var_name=$${!service_link#*:}
       export $var_name
       i=$((i+1))
     done
