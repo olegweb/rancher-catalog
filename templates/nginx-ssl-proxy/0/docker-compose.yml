@@ -20,11 +20,8 @@ nginx-ssl-proxy:
     - SERVICE_PORT_4=${service_port_4}
     - SERVICE_PORT_5=${service_port_5}
   external_links:
-    ${service_link_1}
-    ${service_link_2}
-    ${service_link_3}
-    ${service_link_4}
-    ${service_link_5}
+    - registry/registry:registry
+    - registry/portus:portus
   volumes:
     - ${nginx_path}/certs:/etc/nginx/certs:ro
     - ${nginx_path}/conf.d:/etc/nginx/conf.d:ro
