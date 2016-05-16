@@ -28,10 +28,4 @@ nginx-ssl-proxy:
   volumes:
     - ${nginx_path}/certs:/etc/nginx/certs:ro
     - ${nginx_path}/conf.d:/etc/nginx/conf.d:ro
-  command: /bin/bash -c "cd /etc/nginx/conf.d \
-                        && i=1 \
-                        && for service_link in `compgen -A variable | grep TT`; do var_name=LINK_NAME_$i && eval $var_name=${!service_link#*:} && export $var_name && i=$((i+1)); done \
-                        && for file in *.conf; do envsubst < $file > $file.tmp \
-                        && rm $file \
-                        && mv $file.tmp $file; done \
-                        && nginx -g 'daemon off;'"
+  command: /bin/bash -c "cd /etc/nginx/conf.d && i=1 && for service_link in `compgen -A variable | grep TT`; do var_name=LINK_NAME_$i && eval $var_name=${!service_link#*:} && export $var_name && i=$((i+1)); done && for file in *.conf; do envsubst < $file > $file.tmp && rm $file && mv $file.tmp $file; done && nginx -g 'daemon off;'"
