@@ -1,5 +1,4 @@
 nginx-ssl-proxy:
-  restart: always
   image: nginx:1.9.9
   ports:
     - "443:443"
