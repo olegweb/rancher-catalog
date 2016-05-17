@@ -108,6 +108,6 @@ nginx-ssl-proxy:
     port: 443
     interval: 3000
     unhealthy_threshold: 2
-    strategy: noop
+    strategy: none
     response_timeout: 4000
     healthy_threshold: 2
