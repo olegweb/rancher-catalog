@@ -20,4 +20,4 @@ nginx-ssl-proxy:
     - SERVICE_PORT_5=${service_port_5}
   labels:
     io.rancher.container.start_once: 'true'
-  command: /bin/bash -c "cd /etc/nginx/conf.d echo 'Template files do not exist' && exit 127"
+  command: /bin/bash -c "nginx -g 'daemon off;'"
