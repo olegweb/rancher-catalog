@@ -22,7 +22,7 @@ nginx-ssl-proxy:
     - nginx-conf
   labels:
     io.rancher.sidekicks: nginx-conf
-  command: /bin/bash -c "cd /etc/nginx/conf.d && for file in *.conf; do envsubst < $$file > $$file.tmp && rm $$file && mv $$file.tmp $$file done && nginx -g 'daemon off;'"
+  command: /bin/bash -c "cd /etc/nginx/conf.d && nginx -g 'daemon off;'"
 
 nginx-conf:
   image: busybox
