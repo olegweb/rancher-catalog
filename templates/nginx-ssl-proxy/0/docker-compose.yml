@@ -18,17 +18,7 @@ nginx-ssl-proxy:
     - SERVICE_PORT_3=${service_port_3}
     - SERVICE_PORT_4=${service_port_4}
     - SERVICE_PORT_5=${service_port_5}
-  volumes_from:
-    - nginx-conf
-  labels:
-    io.rancher.sidekicks: nginx-conf
-  command: /bin/bash -c "cd /etc/nginx/conf.d && nginx -g 'daemon off;'"
-
-nginx-conf:
-  image: busybox
-  command: /bin/true
   volumes:
     - ${nginx_path}/certs:/etc/nginx/certs
     - ${nginx_path}/conf.d:/etc/nginx/conf.d
-  labels:
-    io.rancher.container.start_once: 'true'
+  command: /bin/bash -c "cd /etc/nginx/conf.d && nginx -g 'daemon off;'"
