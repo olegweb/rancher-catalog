@@ -104,4 +104,10 @@
       type: "int"
 nginx-ssl-proxy:
   scale: 1
-
+  health_check:
+    port: 443
+    interval: 3000
+    unhealthy_threshold: 2
+    strategy: noop
+    response_timeout: 4000
+    healthy_threshold: 2
