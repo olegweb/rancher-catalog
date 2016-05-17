@@ -18,7 +18,4 @@ nginx-ssl-proxy:
     - SERVICE_PORT_3=${service_port_3}
     - SERVICE_PORT_4=${service_port_4}
     - SERVICE_PORT_5=${service_port_5}
-  volumes:
-    - ${nginx_path}/certs:/etc/nginx/certs
-    - ${nginx_path}/conf.d:/etc/nginx/conf.d
-  command: /bin/bash -c "cd /etc/nginx/conf.d && nginx -g 'daemon off;'"
+  command: /bin/bash -c "nginx -g 'daemon off;'"
