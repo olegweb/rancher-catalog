@@ -22,7 +22,7 @@ nginx-ssl-proxy:
     - nginx-conf
   labels:
     io.rancher.sidekicks: nginx-conf
-  command: /bin/bash -c "cd /etc/nginx/conf.d && $$SERVICE_HOST_1=`echo $${SERVICE_LINK_1/\\//.} | awk '{n=split($$0,A,\".\");S=A[n];{for(i=n-1;i>0;i--)S=S"."A[i]}}END{print S}'` && for file in *.conf; do envsubst < $$file > $$file.tmp && rm $$file && mv $$file.tmp $$file done && nginx -g 'daemon off;'"
+  command: /bin/bash -c "cd /etc/nginx/conf.d && for file in *.conf; do envsubst < $$file > $$file.tmp && rm $$file && mv $$file.tmp $$file done && nginx -g 'daemon off;'"
 
 nginx-conf:
   image: busybox
