@@ -20,4 +20,4 @@ nginx-ssl-proxy:
     - SERVICE_PORT_5=${service_port_5}
   labels:
     io.rancher.container.start_once: 'true'
-  command: /bin/bash -c "nginx -g 'daemon off;'"
+  command: /bin/bash -c "cd /etc/nginx/conf.d && export SERVICE_HOST_1=`echo $${SERVICE_LINK_1/\\//.} | awk '{n=split($$0,A,\".\");S=A[n];{for(i=n-1;i>0;i--)S=S\".\"A[i]}}END{print S}'` && if ls *.template 1> /dev/null 2>&1; then for file in *.template; do envsubst < $$file > $$file.conf; done; else echo 'Template files not found' && exit 127; fi && nginx -g 'daemon off;'"
