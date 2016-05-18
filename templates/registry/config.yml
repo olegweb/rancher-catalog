@@ -1,6 +1,6 @@
 name: Registry
 description: |
-  Secure Docker registry.  Web based administration.  Optional LDAP authentication.
+  Secure Docker registry.  Web based administration.  Use only with Nginx SSL Proxy
 version: v3.1
 category: Applications
 
