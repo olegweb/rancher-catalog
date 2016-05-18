@@ -1,4 +1,4 @@
-name: Registry
+name: Registry Custom
 description: |
   Secure Docker registry.  Web based administration.  Use only with Nginx SSL Proxy
 version: v3.1
