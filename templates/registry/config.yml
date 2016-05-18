@@ -1,0 +1,6 @@
+name: Registry
+description: |
+  Secure Docker registry.  Web based administration.  Optional LDAP authentication.
+version: v3.1
+category: Applications
+

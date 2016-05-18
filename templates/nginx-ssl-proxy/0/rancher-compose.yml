@@ -21,7 +21,7 @@
     - variable: "service_link_1"
       description: "Service link 1"
       label: "Service link 1"
-      required: false
+      required: true
       default: "registry/registry"
       type: "service"
     - variable: "service_port_1"
