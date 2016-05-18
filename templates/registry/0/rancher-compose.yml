@@ -20,6 +20,7 @@
       label: "Storage directory"
       description: "Path of shared storage to use for registry, database, and certificates.  This should be available on all hosts"
       required: true
+      default: "/rancher/registry"
       type: "string"
     - variable: "DOMAIN"
       label: "FQDN"
