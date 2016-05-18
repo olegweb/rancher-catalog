@@ -52,19 +52,19 @@
       description: "Server name (load cert files: server_name.key server_name.pem)"
       label: "Server name 3:"
       required: false
-      default: ""
+      default: "rancher.sarrc.ru"
       type: "string"
     - variable: "service_link_3"
       description: "Service link 3"
       label: "Service link 3"
       required: false
-      default: ""
+      default: "rancher/server"
       type: "service"
     - variable: "service_port_3"
       description: "Service port"
       label: "Service port 3:"
       required: false
-      default: ""
+      default: "8080"
       type: "int"
     - variable: "server_name_4"
       description: "Server name (load cert files: server_name.key server_name.pem)"
