@@ -19,7 +19,7 @@ registry:
     REGISTRY_AUTH: token
     REGISTRY_AUTH_TOKEN_REALM: https://auth.${DOMAIN}/v2/token
     REGISTRY_AUTH_TOKEN_SERVICE: ${DOMAIN}
-    REGISTRY_AUTH_TOKEN_ISSUER: ${DOMAIN}
+    REGISTRY_AUTH_TOKEN_ISSUER: auth.${DOMAIN}
     REGISTRY_AUTH_TOKEN_ROOTCERTBUNDLE: /certs/registry.crt
     REGISTRY_HTTP_TLS_CERTIFICATE: /certs/registry.crt
     REGISTRY_HTTP_TLS_KEY: /certs/registry.key
@@ -65,7 +65,6 @@ portus:
     PORTUS_PORT: 443
     REGISTRY_SSL_ENABLED: true
     REGISTRY_HOSTNAME: ${DOMAIN}
-    REGISTRY_PORT: 5000
     REGISTRY_NAME: Registry
   tty: true
   stdin_open: true
