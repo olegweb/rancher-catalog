@@ -17,13 +17,13 @@
       label: "MySQL root password:"
       required: true
       default: "password"
-      type: "string"
+      type: "password"
     - variable: "DBPASSWORD"
       description: "MySQL db password"
       label: "MySQL db password"
       required: true
       default: "password"
-      type: "string"
+      type: "password"
     - variable: "HOSTLABEL"
       description: "Run on host with this label"
       label: "Host label:"
