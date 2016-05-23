@@ -9,7 +9,7 @@ nginx:
   labels:
     io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
   links:
-  - php:php
+    - php:php
 php:
   image: registry.sarrc.ru/php-kbr
   volumes_from:
@@ -17,7 +17,7 @@ php:
   labels:
     io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
   links:
-  - mysql:mysql
+    - mysql:mysql
 mysql:
   image: mariadb
   environment:
