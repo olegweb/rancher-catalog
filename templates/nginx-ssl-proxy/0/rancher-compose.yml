@@ -7,8 +7,8 @@
   uuid: nginx-ssl-proxy-0
   questions:
     - variable: "nginx_path"
-      description: "Path to conf.d and carts"
-      label: "Path to conf.d and carts:"
+      description: "Path to conf.d and certs"
+      label: "Path to conf.d and certs:"
       required: true
       default: "/rancher/nginx-ssl-proxy"
       type: "string"
