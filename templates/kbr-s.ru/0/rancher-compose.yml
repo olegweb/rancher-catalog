@@ -10,7 +10,7 @@
       description: "Path to conf.d and etc."
       label: "Path to conf.d and etc."
       required: true
-      default: "kbr-s.ru"
+      default: "/rancher/kbr-s.ru"
       type: "string"
     - variable: "ROOTPASSWORD"
       description: "MySQL root password"
