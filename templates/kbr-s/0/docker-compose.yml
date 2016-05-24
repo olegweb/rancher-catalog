@@ -1,5 +1,7 @@
 nginx:
   image: nginx
+  tty: true
+  stdin_open: true
   ports:
     - "8082:80"
   volumes:
@@ -7,7 +9,6 @@ nginx:
   volumes_from:
     - www-data
   labels:
-    io.rancher.sidekicks: www-data
     io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
   links:
     - php:php
@@ -17,10 +18,6 @@ php:
   stdin_open: true
   volumes_from:
     - www-data
-  labels:
-    io.rancher.sidekicks: www-data
-    io.rancher.container.pull_image: always
-    io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
   links:
     - mysql:mysql
 mysql:
@@ -36,16 +33,12 @@ mysql:
     - ${main_path}/mysql-dump:/docker-entrypoint-initdb.d
   volumes_from:
     - mysql-data
-  labels:
-    io.rancher.sidekicks: mysql-data
-    io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
 www-data:
   image: busybox
   net: none
   command: /bin/true
   labels:
     io.rancher.container.start_once: 'true'
-    io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
   volumes:
     - ${main_path}/www:/var/www/html
 mysql-data:
@@ -54,6 +47,5 @@ mysql-data:
   command: /bin/true
   labels:
     io.rancher.container.start_once: 'true'
-    io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
   volumes:
     - ${main_path}/mysql-data:/var/lib/mysql
