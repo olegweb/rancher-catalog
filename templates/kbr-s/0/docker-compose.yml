@@ -14,7 +14,7 @@ nginx:
   links:
     - php:php
 php:
-  image: naerymdan/docker-alpine-php-fpm7
+  image: yavin/alpine-php-fpm:5.6.17
   tty: true
   stdin_open: true
   volumes_from:
