@@ -7,14 +7,19 @@ nginx:
   volumes_from:
     - www-data
   labels:
+    io.rancher.sidekicks: www-data
     io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
   links:
     - php:php
 php:
   image: registry.sarrc.ru/php-kbr
+  tty: true
+  stdin_open: true
   volumes_from:
     - www-data
   labels:
+    io.rancher.sidekicks: www-data
+    io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
   links:
     - mysql:mysql
@@ -32,6 +37,7 @@ mysql:
   volumes_from:
     - mysql-data
   labels:
+    io.rancher.sidekicks: mysql-data
     io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
 www-data:
   image: busybox
