@@ -37,4 +37,6 @@ mysql:
   scale: 1
 php:
   scale: 1
+www-data:
+  scale: 1
 

@@ -10,6 +10,7 @@ nginx:
     - www-data
   labels:
     io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
+    io.rancher.sidekicks: php,mysql,www-data,mysql-data
   links:
     - php:php
 php:
