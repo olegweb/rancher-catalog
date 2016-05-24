@@ -14,7 +14,7 @@ nginx:
   links:
     - php:php
 php:
-  image: registry.sarrc.ru/php-kbr
+  image: pagafa/php-fpm
   tty: true
   stdin_open: true
   volumes_from:
