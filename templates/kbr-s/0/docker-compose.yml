@@ -14,7 +14,7 @@ nginx:
   links:
     - php:php
 php:
-  image: pagafa/php-fpm
+  image: naerymdan/docker-alpine-php-fpm7
   tty: true
   stdin_open: true
   volumes_from:
