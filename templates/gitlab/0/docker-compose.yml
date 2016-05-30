@@ -1,0 +1,24 @@
+gitlab-server:
+  ports:
+  - 4022:22/tcp
+  - 4080:80/tcp
+  labels:
+    io.rancher.sidekicks: gitlab-data
+    io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
+  hostname: ${gitlab_hostname}
+  image: gitlab/gitlab-ce:8.8.2-ce.0
+  volumes_from:
+  - gitlab-data
+
+gitlab-data:
+  labels:
+    io.rancher.container.start_once: 'true'
+  entrypoint:
+  - /bin/true
+  hostname: gitdata
+  image: gitlab/gitlab-ce:8.8.2-ce.0
+  volumes:
+  - ${DIR}/config:/etc/gitlab
+  - ${DIR}/log:/var/log/gitlab
+  - ${DIR}/opt:/var/opt/gitlab
+
