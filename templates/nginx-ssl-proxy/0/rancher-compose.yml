@@ -102,6 +102,12 @@
       required: false
       default: ""
       type: "int"
+    - variable: "HOSTLABEL"
+      description: "Run on host with this label "
+      label: "Host label:"
+      required: true
+      default: "hostname=rancher"
+      type: "string"
 nginx-ssl-proxy:
   scale: 1
   health_check: 
