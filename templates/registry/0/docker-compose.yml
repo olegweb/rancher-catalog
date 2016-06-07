@@ -37,6 +37,8 @@ registry:
   volumes:
   - ${DIR}/certs:/certs
   - ${DIR}/data:/var/lib/registry
+  labels:
+    io.rancher.scheduler.affinity:container_label_soft: registry.portus.db=1
 portus:
   image: sshipway/portus:2.0.5
   environment: 
