@@ -10,6 +10,7 @@ db:
   volumes:
   - ${DIR}/db:/var/lib/mysql
   labels:
+    io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
     registry.portus.db: 1
 registry:
   image: registry:2.3.1
@@ -38,7 +39,7 @@ registry:
   - ${DIR}/certs:/certs
   - ${DIR}/data:/var/lib/registry
   labels:
-    io.rancher.scheduler.affinity:container_label_soft: registry.portus.db=1
+    io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
 portus:
   image: sshipway/portus:2.0.5
   environment: 

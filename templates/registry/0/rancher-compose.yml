@@ -28,6 +28,12 @@
       required: true
       default: "registry.sarrc.ru"
       type: "string"
+    - variable: "HOSTLABEL"
+      description: "Run on host with this label "
+      label: "Host label:"
+      required: true
+      default: "hostname=rancher"
+      type: "string"
 db:
   scale: 1
 registry:
