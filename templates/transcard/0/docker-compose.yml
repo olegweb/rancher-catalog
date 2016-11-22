@@ -1,0 +1,29 @@
+nginx:
+  image: registry.sarrc.ru/nginx-alpine:1.11.2
+  tty: true
+  stdin_open: true
+  ports:
+    - "8085:80"
+  volumes:
+    - ${main_path}/docker/nginx/conf.d:/etc/nginx/conf.d
+  volumes_from:
+    - www-data
+  labels:
+    io.rancher.scheduler.affinity:host_label: ${HOSTLABEL}
+    io.rancher.sidekicks: php,www-data
+  links:
+    - php:php
+php:
+  build: ${main_path}/docker/php
+  tty: true
+  stdin_open: true
+  volumes_from:
+    - www-data
+www-data:
+  image: busybox
+  net: none
+  command: /bin/true
+  labels:
+    io.rancher.container.start_once: 'true'
+  volumes:
+    - ${main_path}/app:/var/www/html
