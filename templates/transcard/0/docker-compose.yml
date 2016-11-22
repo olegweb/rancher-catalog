@@ -14,7 +14,7 @@ nginx:
   links:
     - php:php
 php:
-  build: ${main_path}/docker/php
+  image: registry.sarrc.ru/php-alpine-grav:7.0.13
   tty: true
   stdin_open: true
   volumes_from:
